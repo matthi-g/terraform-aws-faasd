@@ -65,23 +65,8 @@ resource "aws_security_group" "faasd" {
   )
 }
 
-resource "aws_iam_role" "faasd" {
-  name               = var.name
-  assume_role_policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": "sts:AssumeRole",
-      "Principal": {
-        "Service": "ec2.amazonaws.com"
-      },
-      "Effect": "Allow",
-      "Sid": ""
-    }
-  ]
-}
-EOF
+data "aws_iam_role" "awsRole" {
+  name = "LabRole"
 }
 
 resource "aws_iam_instance_profile" "faasd" {
