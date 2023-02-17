@@ -71,12 +71,12 @@ data "aws_iam_role" "awsRole" {
 
 resource "aws_iam_instance_profile" "faasd" {
   name = var.name
-  role = aws_iam_role.faasd.id
+  role = data.aws_iam_role.arn
 }
 
 resource "aws_iam_policy_attachment" "faasd" {
   name       = format("%s-attachment", var.name)
-  roles      = [aws_iam_role.faasd.id]
+  roles      = [data.aws_iam_role.arn]
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
