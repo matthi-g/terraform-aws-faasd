@@ -17,7 +17,7 @@ code by adding a `module` configuration and setting its `source` parameter to UR
 
 ```hcl
 module "faasd" {
-  source = "github.com/jsiebens/terraform-aws-faasd"
+  source = "github.com/matthi-g/terraform-aws-faasd"
 
   name      = "faasd"
   vpc_id    = var.vpc_id
